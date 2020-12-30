@@ -1,0 +1,18 @@
+name: Linux CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container: gcc:latest
+    steps:
+    - uses: actions/checkout@master
+    - run: apt-get update
+    - run: apt-get install --yes bc bison flex
+    - run: git submodule update --init --recursive
+    - run: make
