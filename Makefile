@@ -15,7 +15,7 @@ clean-init:
 
 .PHONY: clean-initrd
 clean-initrd:
-	$(RM) initrd
+	$(RM) -rf initrd
 
 .PHONY: clean-linux
 clean-linux:
